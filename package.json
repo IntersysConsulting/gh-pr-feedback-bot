@@ -1,0 +1,23 @@
+{
+  "name": "gh-pr-feedback-bot",
+  "version": "0.0.1-alpha",
+  "description": "A bot that verify if the PRs meet all the conditions",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --trace-sync-io index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IntersysConsulting/gh-pr-feedback-bot.git"
+  },
+  "author": "IntersysConsulting",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IntersysConsulting/gh-pr-feedback-bot/issues"
+  },
+  "homepage": "https://github.com/IntersysConsulting/gh-pr-feedback-bot#readme",
+  "dependencies": {
+    "@octokit/rest": "16.27.1"
+  }
+}
