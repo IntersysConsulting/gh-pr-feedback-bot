@@ -1,14 +1,15 @@
-require('dotenv').config();
-
-const Octokit = require('@octokit/rest'),
+const constants = require('./constants'),
+    Octokit = require('@octokit/rest'),
     octokit = new Octokit({
-        auth: process.env.GITHUB_TOKEN
-    });
+        auth: constants.GITHUB_TOKEN
+    }),
+    ORGS = constants.ORGS,
+    AUTHORS = constants.AUTHORS;
 
 
 module.exports = {
-    getPRs: (orgs, authors) => {
-        const q = `is:pr+is:open+user:${orgs.join('+user:')}+author:${authors.join('+author:')}`;
+    getPRs: () => {
+        const q = `is:pr+is:open+user:${ORGS.replace(/\,/g, '+user:')}+author:${AUTHORS.replace(/\,/g, '+author:')}`;
 
         return octokit.search.issuesAndPullRequests({ q });
     }
