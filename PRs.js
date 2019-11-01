@@ -1,4 +1,6 @@
 const constants = require('./constants'),
+    md = require('markdown-it')()
+    .disable(['image','text']),
     getData = PRs => PRs.map(e => {
         return {
             labels: e.labels.map(label => label.name),
@@ -17,7 +19,7 @@ const constants = require('./constants'),
                 url: e.url,
                 labels: missingLabels,
                 pings: missingPings,
-                body: e.body
+                body: md.parseInline(e.body)
             };
         }
     });
